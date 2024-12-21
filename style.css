@@ -3,6 +3,7 @@ body {
     display: flex;
     justify-content: center;
     min-height: 80vh;
+    position: relative;
   }
   
 p {
@@ -20,6 +21,7 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     height: 600px;
+    position: relative;
   }
 
 .boots {
@@ -33,4 +35,44 @@ p {
   box-sizing: border-box;
   text-decoration: none;
   display: block;
+}
+
+.boots a {
+  margin: 10px;
+  width: 48%;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative
+}
+
+.boots img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer; 
+}
+
+.boots img:hover ~ .blur-container {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.blur-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 2; 
+    filter: blur(5px);
+}
+
+.boots a {
+  z-index: 3;
 }
