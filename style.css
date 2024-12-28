@@ -3,9 +3,9 @@ body {
     display: flex;
     justify-content: center;
     min-height: 80vh;
-    position: relative;
+    position: relative; /* Требуется для абсолютного позиционирования контейнера размытия */
   }
-  
+
 p {
     font-family: 'Univers', sans-serif;
     font-size: 34px;
@@ -22,13 +22,12 @@ p {
     flex-wrap: wrap;
     height: 600px;
     position: relative;
-  }
+}
 
 .boots {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+    flex-wrap: nowrap; /* Сохраняем исходный flex-макет для изображений */
+}
 
 .boots1, .boots2, .boots3, .boots4 {
   margin: 10px;
@@ -40,60 +39,42 @@ p {
 
 .boots a {
   margin: 10px;
-  width: 48%;
+  width: 48%; /* Скорректировано из предыдущего значения */
   box-sizing: border-box;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .boots img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-.boots img:hover ~ .blur-container {
-    opacity: 1;
-    pointer-events: none;
+/* Контейнер размытия */
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0; /* Изначально скрыт */
+  transition: opacity 0.3s ease;
+  z-index: 1; /* За основным контентом, но над body */
+  pointer-events: none; /* Разрешает взаимодействие с элементами */
 }
 
-.blur-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white; 
-    opacity: 0; 
-    transition: opacity 0.3s ease;
-    z-index: 2; 
+.boots img:hover ~ .blur-overlay {
+    opacity: 1; /* Показываем размытие при наведении */
+    pointer-events: all;
     filter: blur(5px);
-    pointer-events: none;
+
 }
 
 .boots a {
-  margin: 10px;
-  width: 48%;
-  box-sizing: border-box;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-content {
-    position: relative;
-    z-index: 1;
-}
-
-.boots p {
-  font-weight: bold;
-}
-
-.main-content {
-    position: relative; 
-    z-index: 1;
-}
+  z-index: 2;
