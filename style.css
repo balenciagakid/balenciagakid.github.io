@@ -21,7 +21,8 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     height: 600px;
-    position: relative;
+    position: relative; /* Требуется для относительного позиционирования абсолютно позиционированного наложения */
+    z-index: 2; /* Поместите контент поверх наложения */
 }
 
 .boots {
@@ -55,7 +56,7 @@ p {
     cursor: pointer;
 }
 
-/* Контейнер размытия */
+/* Наложение контейнера размытия */
 .blur-overlay {
   position: absolute;
   top: 0;
@@ -65,16 +66,13 @@ p {
   background-color: white;
   opacity: 0; /* Изначально скрыт */
   transition: opacity 0.3s ease;
-  z-index: 1; /* За основным контентом, но над body */
-  pointer-events: none; /* Разрешает взаимодействие с элементами */
+  z-index: 1; /* Поместите под контент, но над body */
+   pointer-events: none; /* Разрешает взаимодействие с элементами */
 }
 
-.boots img:hover ~ .blur-overlay {
-    opacity: 1; /* Показываем размытие при наведении */
+
+.boots img:hover ~ .blur-overlay{ /* Используем общий селектор сопряжения для нацеливания blur-overlay */
+    opacity: 1; /* Показываем размытие при наведении на изображение */
     pointer-events: all;
     filter: blur(5px);
-
 }
-
-.boots a {
-  z-index: 2;
