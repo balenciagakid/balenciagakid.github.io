@@ -3,9 +3,10 @@ body {
     display: flex;
     justify-content: center;
     min-height: 80vh;
-    position: relative; /* Требуется для абсолютного позиционирования контейнера размытия */
-  }
+    position: relative;
+}
 
+/* Стили для текста */
 p {
     font-family: 'Univers', sans-serif;
     font-size: 34px;
@@ -14,41 +15,48 @@ p {
     line-height: 1.6;
     text-align: center;
     display: block;
-  }
+}
 
+/* Контейнер для товаров */
 .items {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     height: 600px;
-    position: relative; /* Требуется для относительного позиционирования абсолютно позиционированного наложения */
-    z-index: 2; /* Поместите контент поверх наложения */
+    position: relative;
+    z-index: 2;
 }
 
+/* Контейнер для отдельных товаров */
 .boots {
     display: flex;
-    flex-wrap: nowrap; /* Сохраняем исходный flex-макет для изображений */
+    flex-wrap: nowrap;
 }
 
+/* Общие стили для карточек */
 .boots1, .boots2, .boots3, .boots4 {
   margin: 10px;
   width: 25%;
   box-sizing: border-box;
   text-decoration: none;
   display: block;
+  transition: transform 0.3s ease; /* Плавное изменение */
 }
 
+/* Стили для каждой карточки */
 .boots a {
   margin: 10px;
-  width: 48%; /* Скорректировано из предыдущего значения */
+  width: 48%;
   box-sizing: border-box;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  transition: filter 0.3s ease; /* Плавное изменение фильтров */
 }
 
+/* Изображения товара */
 .boots img {
     max-width: 100%;
     height: auto;
@@ -56,7 +64,7 @@ p {
     cursor: pointer;
 }
 
-/* Наложение контейнера размытия */
+/* Наложение для размытия фона */
 .blur-overlay {
   position: absolute;
   top: 0;
@@ -64,15 +72,26 @@ p {
   width: 100%;
   height: 100%;
   background-color: white;
-  opacity: 0; /* Изначально скрыт */
+  opacity: 0; /* Изначально скрыто */
   transition: opacity 0.3s ease;
-  z-index: 1; /* Поместите под контент, но над body */
-   pointer-events: none; /* Разрешает взаимодействие с элементами */
+  z-index: 1;
+  pointer-events: none;
 }
 
-
-.boots img:hover ~ .blur-overlay{ /* Используем общий селектор сопряжения для нацеливания blur-overlay */
-    opacity: 1; /* Показываем размытие при наведении на изображение */
-    pointer-events: all;
-    filter: blur(5px);
+/* При наведении на карточку товара, размазываем все остальные */
+.items:hover .boots a {
+  filter: blur(5px); /* Размытие всех карточек */
 }
+
+.items .boots1:hover,
+.items .boots2:hover,
+.items .boots3:hover,
+.items .boots4:hover {
+  filter: none; /* Убираем размытие с наведеного элемента */
+}
+
+/* Стили для улучшения визуального эффекта */
+.items a:hover {
+  transform: scale(1.05); /* Легкое увеличение элемента при наведении */
+}
+
