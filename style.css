@@ -1,97 +1,40 @@
-body {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    min-height: 80vh;
-    position: relative;
-}
+<!DOCTYPE html>
+<html>
 
-/* Стили для текста */
-p {
-    font-family: 'Univers', sans-serif;
-    font-size: 34px;
-    font-weight: bold;
-    color: #333;
-    line-height: 1.6;
-    text-align: center;
-    display: block;
-}
+<head>
+    <title>магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-/* Контейнер для товаров */
-.items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 600px;
-    position: relative;
-    z-index: 2;
-}
+<body>
+    <header>
+    </header>
+    <main>
+        <div class="blur-overlay"></div>
+        <div class="items">
+            <div class="boots">
+                <a href="bulldozer.html" class="boots1">
+                    <img src="bulldozer1.png" alt="bulldozer">
+                    <p>bulldozer</p>
+                </a>
+                <a href="spomper.html" class="boots2">
+                    <img src="stomper1.png" alt="stomper">
+                    <p>spomper</p>
+                </a>
+                <a href="steroid.html" class="boots3">
+                    <img src="steroid1.png" alt="steroid">
+                    <p>steroid</p>
+                </a>
+                <a href="strike.html" class="boots4">
+                    <img src="strike1.png" alt="strike">
+                    <p>strike</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="script.js"></script>
+</body>
 
-/* Контейнер для отдельных товаров */
-.boots {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-/* Общие стили для карточек */
-.boots1, .boots2, .boots3, .boots4 {
-  margin: 10px;
-  width: 25%;
-  box-sizing: border-box;
-  text-decoration: none;
-  display: block;
-  transition: transform 0.3s ease; /* Плавное изменение */
-}
-
-/* Стили для каждой карточки */
-.boots a {
-  margin: 10px;
-  width: 48%;
-  box-sizing: border-box;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: filter 0.3s ease; /* Плавное изменение фильтров */
-}
-
-/* Изображения товара */
-.boots img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-/* Наложение для размытия фона */
-.blur-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  opacity: 0; /* Изначально скрыто */
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* При наведении на карточку товара, размазываем все остальные */
-.items:hover .boots a {
-  filter: blur(5px); /* Размытие всех карточек */
-}
-
-.items .boots1:hover,
-.items .boots2:hover,
-.items .boots3:hover,
-.items .boots4:hover {
-  filter: none; /* Убираем размытие с наведеного элемента */
-}
-
-/* Стили для улучшения визуального эффекта */
-.items a:hover {
-  transform: scale(1.05); /* Легкое увеличение элемента при наведении */
-}
-
+</html>
