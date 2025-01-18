@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Bulldozer</title>
-        <style>
-            body {
+<head>
+    <title>Bulldozer</title>
+    <style>
+body {
     display: grid;
     grid-template-columns: 70% 30%;
     gap: 20px;
@@ -23,72 +23,103 @@
     margin-bottom: 10px;
 }
 
-.text {
+.text-and-button { /* Новый контейнер */
     position: fixed;
     top: 0;
     right: 0;
     width: 30%;
     padding: 20px;
-    font-size: 24px;
-    line-height: 1.4;
     background-color: white;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.text {
+   font-size: 24px;
+   line-height: 1.4;
 }
 
-/* Стили для кнопки "Назад" */
-.back_button_container {
-    position: fixed; /* Фиксированное положение */
-    bottom: 20px;    /* Расстояние от нижней грани экрана */
-    right: 20px;     /* Расстояние от правой грани экрана */
-    z-index: 1000;   /* Чтобы кнопка была поверх других элементов */
+.button-wrapper{
+    margin-top: 30px;
 }
 
-.back_button {
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    background-color: #007BFF; /* Цвет фона кнопки */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Убираем рамку */
-    border-radius: 5px; /* Скругляем углы */
-    cursor: pointer; /* Курсор при наведении */
-    font-size: 16px; /* Размер шрифта */
-    transition: background-color 0.3s; /* Плавный переход цвета */
+.button-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.back_button:hover {
-    background-color: #0056b3; /* Цвет фона при наведении */
+.button-container {
+    display: flex;
+    justify-content: space-between;
 }
+
+.button {
+    padding: 20px 45px; /* Увеличиваем отступы */
+    background-color:#393A5A;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    transition: background-color 0.7s;
+    align-self: flex-start;
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-top: 0;
+    
+}
+.button[href] {
+  margin-right: 20px;
+}
+.button:hover {
+    background-color: #22222E;
+}
+
         </style>
     </head>
     <body>
         <div class="images">
-            <img src="bulldozer1.png" >
-            <img src="bulldozer2.png" >
-            <img src="bulldozer3.png" >
-            <img src="bulldozer4.png" >
-            <img src="bulldozer5.png" >
-            <img src="bulldozer6.png" >
-            <img src="bulldozer7.png" >
+        <img src="bulldozer1.png" alt="Бульдозер 1">
+        <img src="bulldozer2.png" alt="Бульдозер 2">
+        <img src="bulldozer3.png" alt="Бульдозер 3">
+        <img src="bulldozer4.png" alt="Бульдозер 4">
+        <img src="bulldozer5.png" alt="Бульдозер 5">
+        <img src="bulldozer6.png" alt="Бульдозер 6">
+        <img src="bulldozer7.png" alt="Бульдозер 7">
         </div>
         
-        <div class="text">
-            <h1>Product details:</h1>
-            <p>Calfskin<br>
-               Boot<br>
-               Round toe<br>
-               80mm platform<br>
-               Oversized design<br>
-               Distressed effect<br>
-               Leather strap on both sides<br>
-               Removable harness with metal piece<br>
-               Thick lug rubber outsole<br>
-               Balenciaga logo embossed on the outsole<br>
-               Made in Italy<br>
-               Upper: calfskin - Sole: TPU, bio-sourced TPU - Insole: calfskin</p>
-        </div>
+        <div class="text-and-button">
+            <div class="text">
+                <h1>Product details:</h1>
+                <p>Calfskin<br>
+                    Boot<br>
+                    Round toe<br>
+                    80mm platform<br>
+                    Oversized design<br>
+                    Distressed effect<br>
+                    Leather strap on both sides<br>
+                    Removable harness with metal piece<br>
+                    Thick lug rubber outsole<br>
+                    Balenciaga logo embossed on the outsole<br>
+                    Made in Italy<br>
+                    Upper: calfskin - Sole: TPU, bio-sourced TPU - Insole: calfskin</p>
+            </div>
+            
+            <div class="button-wrapper">
+                <div class="button-contanier">
+                    <a href="index.html" class="button">Back</a>
+                    <button class="button" id="buy-now-button">buy now</button>
+                </div>
+            </div>
+        <div>
 
-        <div class="back_bottom_container">
-            <a href="index.html" class="back_button">Back</a>
-        </div>>
-
+        <script>
+            document.getElementById('buy-now-button').addEventListener('click', function() {
+                setTimeout(function() {
+                        alert('Временно недоступно');
+                    }, 500);
+            });
+            </script>
+            
     </body>
 </html>
